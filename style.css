@@ -1,0 +1,345 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f8f2;
+    text-align: center;
+}
+
+/* Header styles */
+header {
+    background-color: #2ecc71;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #eee;
+}
+
+/* Responsive navigation */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+        padding: 1em;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: white;
+        height: 2px;
+        width: 2em;
+        position: relative;
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+        position: absolute;
+    }
+
+    .nav-toggle-label span::before {
+        bottom: 7px;
+    }
+
+    .nav-toggle-label span::after {
+        top: 7px;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #2ecc71;
+        flex-direction: column;
+        align-items: center;
+        transition: top 0.3s ease;
+    }
+
+    .nav-toggle:checked ~ ul {
+        top: 100%;
+    }
+}
+
+/* Hero section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    animation: heroBackground 20s ease infinite alternate;
+}
+
+@keyframes heroBackground {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease;
+    text-align: center;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.5s backwards;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1s ease 1s backwards;
+}
+
+.cta-button:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px);
+}
+
+/* Stats section */
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2ecc71;
+    padding: 2rem 0;
+    color: white;
+    text-align: center;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.stat-label {
+    font-size: 1rem;
+}
+
+/* Product showcase */
+.product-showcase {
+    display: flex;
+    justify-content: center; /* Center the product cards horizontally */
+    flex-wrap: wrap; /* Allows the products to wrap to the next line on smaller screens */
+    padding: 2rem 0;
+}
+
+.product-card {
+    flex: 0 0 300px;
+    margin-right: 2rem;
+    scroll-snap-align: start;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-info h3 {
+    color: #2ecc71;
+    margin-bottom: 0.5rem;
+}
+
+.product-btn {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Skills bar */
+.skills-container {
+    margin-top: 2rem;
+}
+
+.skill {
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: var(--skill-level);
+    background-color: #2ecc71;
+    animation: skillFill 2s ease-out forwards;
+}
+
+@keyframes skillFill {
+    from { width: 0; }
+    to { width: var(--skill-level); }
+}
+
+/* Testimonials */
+.testimonial-container {
+    display: flex;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.testimonial {
+    flex: 0 0 100%;
+    padding: 2rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-right: 2rem;
+    animation: testimonialSlide 15s infinite;
+    text-align: center;
+}
+
+@keyframes testimonialSlide {
+    0%, 33% { transform: translateX(0); }
+    34%, 66% { transform: translateX(-100%); }
+    67%, 100% { transform: translateX(-200%); }
+}
+
+/* Contact form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px; /* Optional, for some padding around the form */
+    width: 100%; /* Ensures it fits smaller screens */
+}
+
+input, textarea {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
