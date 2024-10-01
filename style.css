@@ -74,6 +74,7 @@ nav ul li a:hover {
         position: absolute;
         top: 0;
         right: 0;
+        z-index: 200;
     }
 
     .nav-toggle-label span,
@@ -100,21 +101,34 @@ nav ul li a:hover {
         top: 7px;
     }
 
-    nav ul {
+    nav ul.nav-list {
         position: fixed;
-        top: 100%;
+        top: -100%;
         right: 0;
         width: 100%;
+        height: 100vh; /* Full screen */
         background: #2ecc71;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         transition: top 0.3s ease;
+        z-index: 100;
     }
 
-    .nav-toggle:checked ~ ul {
-        top: 100%;
+    .nav-toggle:checked + .nav-toggle-label + .logo + ul.nav-list {
+        top: 0;
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem;
+        color: white;
     }
 }
+
 
 /* Hero section */
 .hero {
